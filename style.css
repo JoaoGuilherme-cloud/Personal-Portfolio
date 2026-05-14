@@ -8,10 +8,10 @@
 body {
     background-color: #0f0f0f;
     padding-top: 64px;
-    background-image: url('imgs/background.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; 
+    background-image:
+        radial-gradient(ellipse 600px 600px at top left, rgba(201, 131, 0, 0.25) 0%, transparent 70%),
+        radial-gradient(ellipse 600px 600px at bottom right,  rgba(216, 141, 0, 0.422) 0%, transparent 70%);
+    background-attachment: fixed;
 }
 
 /* ── Header ── */
@@ -31,7 +31,7 @@ nav {
     justify-content: space-between;
     height: 64px;
     max-width: 1100px;
-    margin: 0 auto;                 
+    margin: 0 auto;              
 }
 
 nav > a {
@@ -141,9 +141,14 @@ nav ul li a.ativo::after {
     transition: background 0.2s, color 0.5s;
 }
 
+.btn + .btn {
+    margin-left: 0.75rem;
+}
+
 .btn:hover {
     background: #c98300;
     color: #fff;
+    box-shadow: 0px 6px 20px #ffb30065;
 }
 
 /* ── Habilidades ── */
@@ -188,6 +193,7 @@ nav ul li a.ativo::after {
 .habil-card:hover {
     border-color: #c98300;
     transform: translateY(-4px);
+    box-shadow: 0px 6px 20px #ffb30065;
 }
 
 .habil-card i {
@@ -231,6 +237,7 @@ nav ul li a.ativo::after {
 .proj-card:hover {
     border-color: #c98300;
     transform: translateY(-4px);
+    box-shadow: 0px 6px 20px #ffb30065;
 }
 
 .proj-card img {
@@ -289,6 +296,7 @@ nav ul li a.ativo::after {
 .proj-btn:hover {
     background: #c98300;
     color: #fff;
+    box-shadow: 0px 6px 20px #ffb30050;
 }
 
 /* ── Contatos ── */
@@ -339,6 +347,7 @@ nav ul li a.ativo::after {
 .cont-link:hover {
     border-color: #c98300;
     transform: translateY(-4px);
+    box-shadow: 0px 6px 20px #ffb30065;
 }
 
 .cont-link i {
@@ -382,6 +391,7 @@ nav ul li a.ativo::after {
 .cont-btn:hover {
     background: #c98300;
     color: #fff;
+    box-shadow: 0px 6px 20px #ffb30065;
 }
 
 /* ── Footer ── */
@@ -391,9 +401,189 @@ footer {
     font-size: 15px;
     color: rgba(255, 255, 255, 0.95);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    background-color: #161616;
+    background-color: #1616166e;
 }
 
 footer span {
     color: #ffb300;
+}
+
+
+/*RESPONSIVIDADE*/
+
+/* ── Tablet (≤ 768px) ── */
+@media (max-width: 768px) {
+
+    /* Nav: esconde os links, mantém só o nome */
+    nav ul {
+        display: none;
+    }
+
+    nav > a {
+        font-size: 20px;
+    }
+
+    /* Sobre: empilha foto + texto verticalmente */
+    #sobre {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+        padding: 3rem 1.5rem;
+    }
+
+    .sobre-foto {
+        width: 180px;
+        height: 220px;
+    }
+
+    .sobre-title {
+        font-size: 28px;
+    }
+
+    .sobre-bio {
+        font-size: 14px;
+    }
+
+    /* Botões lado a lado centralizados */
+    .sobre-cont {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn + .btn {
+        margin-left: 0;
+    }
+
+    /* Habilidades */
+    #habil {
+        padding: 3rem 1.5rem;
+    }
+
+    .habil-titulo {
+        font-size: 26px;
+    }
+
+    .habil-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Projetos: 1 coluna */
+    #projetos {
+        padding: 3rem 1.5rem;
+    }
+
+    .proj-titulo {
+        font-size: 26px;
+    }
+
+    .proj-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Contatos */
+    #contatos {
+        padding: 3rem 1.5rem;
+    }
+
+    .cont-titulo {
+        font-size: 26px;
+        margin-bottom: 1.5rem;
+    }
+
+    .cont-wrapper {
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .cont-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .cont-link {
+        width: 100%;
+    }
+}
+
+/* ── Mobile (≤ 480px) ── */
+@media (max-width: 480px) {
+
+    header {
+        padding: 0 1rem;
+    }
+
+    nav > a {
+        font-size: 17px;
+    }
+
+    #sobre {
+        padding: 2.5rem 1rem;
+    }
+
+    .sobre-foto {
+        width: 150px;
+        height: 185px;
+    }
+
+    .sobre-title {
+        font-size: 24px;
+    }
+
+    .sobre-bio {
+        font-size: 13px;
+    }
+
+    .btn {
+        font-size: 13px;
+        padding: 9px 18px;
+        width: 100%;
+        text-align: center;
+    }
+
+    #habil {
+        padding: 2.5rem 1rem;
+    }
+
+    .habil-titulo {
+        font-size: 22px;
+    }
+
+    .habil-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .habil-card {
+        padding: 1.25rem 0.75rem;
+    }
+
+    .habil-card i {
+        font-size: 34px;
+    }
+
+    #projetos {
+        padding: 2.5rem 1rem;
+    }
+
+    .proj-titulo {
+        font-size: 22px;
+    }
+
+    .proj-card img {
+        height: 180px;
+    }
+
+    #contatos {
+        padding: 2.5rem 1rem;
+    }
+
+    .cont-titulo {
+        font-size: 22px;
+    }
+
+    footer {
+        font-size: 13px;
+        padding: 1.5rem 1rem;
+    }
 }
